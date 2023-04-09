@@ -1,10 +1,10 @@
 import java.util.Arrays;
 
-class MyArrayList{
+class MyArrayList <E>{
     private static Object[] array = new Object[0];
     private int indexValue = 0;
 
-    private void add(Object value){
+    private void add(E value){
         array = Arrays.copyOf(array, array.length+1);
         array[indexValue] = value;
         indexValue++;
@@ -29,13 +29,13 @@ class MyArrayList{
     private int size(){
         return array.length;
     }
-    private Object get(int index){
+    private E get(int index){
         if(index < 0 || index >array.length ){
             throw new IndexOutOfBoundsException("index is out of range" + index);
         }
 
 
-        return array[index];
+        return (E) array[index];
     }
 
 
